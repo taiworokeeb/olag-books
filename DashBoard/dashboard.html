@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your Olag's Book House reader dashboard.">
+    <title>My Dashboard | Olag's Book House</title>
+
+    <link rel="stylesheet" href="./dashboard.css">
+</head>
+
+<body>
+    <header class="dashboard-header">
+        <a class="brand" href="../index.html">
+            <span class="brand-mark" aria-hidden="true">O</span>
+            <span>Olag's Book House</span>
+        </a>
+
+        <nav aria-label="Account navigation">
+            <a href="../index.html">Home</a>
+            <a href="../Catalog%20Page/catalog.html">Browse books</a>
+            <button id="logout-button" type="button" hidden>Log out</button>
+        </nav>
+    </header>
+
+    <div id="dashboard-loader" class="dashboard-loader" role="status">
+        <span class="loader-spinner" aria-hidden="true"></span>
+        <p>Loading your dashboard...</p>
+    </div>
+
+    <main class="dashboard-main" hidden>
+        <section class="welcome-panel" aria-labelledby="welcome-heading">
+            <p class="eyebrow">YOUR READER ACCOUNT</p>
+            <h1 id="welcome-heading">
+                Welcome, <span id="dashboard-name">Reader</span>!
+            </h1>
+            <p id="dashboard-email">Your account email will appear here.</p>
+            <p class="role-label">
+                Account type: <span id="dashboard-role">Reader</span>
+            </p>
+        </section>
+
+        <section id="librarian-management" class="dashboard-section librarian-management"
+            aria-labelledby="manage-books-heading" hidden>
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">LIBRARIAN TOOLS</p>
+                    <h2 id="manage-books-heading">Manage books</h2>
+                    <p>Add a book, edit its details, or remove it from the collection.</p>
+                </div>
+            </div>
+
+            <form id="book-form" class="book-form">
+                <input id="managed-book-id" type="hidden">
+
+                <label for="managed-book-title">Book title</label>
+                <input id="managed-book-title" type="text" required maxlength="160">
+
+                <label for="managed-book-author">Author</label>
+                <input id="managed-book-author" type="text" required maxlength="120">
+
+                <label for="managed-book-category">Category</label>
+                <select id="managed-book-category" required>
+                    <option value="">Choose a category</option>
+                    <option value="fiction">Fiction</option>
+                    <option value="children">Children's books</option>
+                    <option value="nonfiction">Nonfiction</option>
+                </select>
+
+                <label for="managed-book-cover">Book cover image URL</label>
+                <input id="managed-book-cover" type="url" required>
+
+                <label for="managed-book-description">Description</label>
+                <textarea id="managed-book-description" rows="4" required maxlength="1000"></textarea>
+
+                <div class="book-form-actions">
+                    <button class="button" id="save-book-button" type="submit">
+                        Add book
+                    </button>
+
+                    <button class="button button-outline" id="cancel-book-edit" type="button" hidden>
+                        Cancel edit
+                    </button>
+                </div>
+
+                <p id="book-form-status" aria-live="polite"></p>
+            </form>
+
+            <div class="managed-books">
+                <h3>Books in the collection</h3>
+                <div id="managed-books-list" aria-live="polite">
+                    <p>Loading books...</p>
+                </div>
+            </div>
+            <div class="loan-requests">
+                <h3>Borrow requests</h3>
+                <p>Review requests from readers and approve or decline them.</p>
+
+                <div id="borrow-requests-list" aria-live="polite">
+                    <p>Loading requests...</p>
+                </div>
+            </div>
+            <div class="active-loans">
+                <h3>Current loans</h3>
+
+                <div id="active-loans-list" aria-live="polite">
+                    <p>Loading active loans...</p>
+                </div>
+            </div>
+            <div class="return-confirmations">
+                <h3>Return confirmations</h3>
+                <div id="return-confirmations-list" aria-live="polite">
+                    <p>Loading return requests...</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="reader-loans-section" class="dashboard-section" aria-labelledby="loans-heading" hidden>
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">YOUR READING SHELF</p>
+                    <h2 id="loans-heading">My borrowed books</h2>
+                </div>
+
+                <a class="browse-link" href="../Catalog%20Page/catalog.html">
+                    Browse the catalog
+                </a>
+            </div>
+
+            <div id="my-loans" class="loans-list">
+                <p class="empty-state">
+                    You don’t have any borrowed books yet. When you borrow a
+                    book, its borrowing and due dates will appear here.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="./dashboard.js"></script>
+</body>
+
+</html>

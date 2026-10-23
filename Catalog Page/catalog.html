@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse books available to borrow from Olag's Book House.">
+    <title>Browse Books | Olag's Book House</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./catalog.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Olag's Book House home">
+            <span class="brand-mark" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                    <path d="M8 15c6-3 11-2 16 2v19c-5-4-10-5-16-2V15Zm32 0c-6-3-11-2-16 2v19c5-4 10-5 16-2V15Z" />
+                    <path d="M24 17v19" />
+                </svg>
+            </span>
+            <span class="brand-copy">
+                <span class="brand-name">Olag's Book House</span>
+                <span class="brand-tagline">Community book lending</span>
+            </span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="../index.html">Home</a>
+            <a href="./catalog.html" aria-current="page">Browse books</a>
+            <a href="../Dashboard/dashboard.html">Dashboard</a>
+            <a href="../index.html#how-it-works">How it works</a>
+            <a href="../index.html#about">About</a>
+        </nav>
+
+        <div class="header-auth-controls">
+            <a class="button button-small button-outline" href="../Signup/auth.html" data-signin-link>
+                Sign in
+            </a>
+
+            <button class="button button-small button-outline" type="button" data-logout-button hidden>
+                Log out
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content" class="catalog-main">
+        <section class="catalog-intro page-width" aria-labelledby="catalog-title">
+            <p class="eyebrow">The community collection</p>
+            <h1 id="catalog-title">Browse the books</h1>
+            <p>Find a title to borrow from your local library.</p>
+        </section>
+
+        <section class="catalog-listing page-width" aria-label="Book catalog">
+            <form class="search-form catalog-controls" id="catalog-filter-form" action="./catalog.html" method="get"
+                role="search">
+                <label class="catalog-search-label" for="catalog-search">
+                    Search by title or author
+                    <input id="catalog-search" name="q" type="search" placeholder="Try a title or author">
+                </label>
+
+                <label class="catalog-filter-label" for="category-filter">
+                    Category
+                    <select id="category-filter" name="category">
+                        <option value="all">All categories</option>
+                        <option value="fiction">Fiction</option>
+                        <option value="children">Children's books</option>
+                        <option value="nonfiction">Nonfiction</option>
+                    </select>
+                </label>
+
+                <label class="catalog-filter-label" for="availability-filter">
+                    Availability
+                    <select id="availability-filter" name="availability">
+                        <option value="all">Any availability</option>
+                        <option value="available">Available</option>
+                        <option value="on-loan">On loan</option>
+                    </select>
+                </label>
+
+                <button class="button" type="submit">Search</button>
+            </form>
+
+            <div class="catalog-results-heading">
+                <h2>Books to explore</h2>
+            </div>
+
+            <div class="book-grid" id="book-grid"></div>
+
+            <p class="sample-note">
+                These books and statuses are examples. Replace them with the library's real collection.
+            </p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="page-width footer-content">
+            <a class="footer-brand" href="../index.html">Olag's Book House</a>
+            <p>Borrow a good book, pass it along.</p>
+            <nav aria-label="Footer navigation">
+                <a href="./catalog.html">Browse books</a>
+                <a href="../index.html#how-it-works">How it works</a>
+                <a href="../Signup/auth.html">Sign in</a>
+            </nav>
+            <small>&copy; 2026 Olag's Book House</small>
+        </div>
+    </footer>
+
+
+    <script type="module" src="./catalog.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="../site-auth.js"></script>
+</body>
+
+</html>

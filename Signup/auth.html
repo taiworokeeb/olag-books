@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join or sign in to Olag's Book House.">
+    <title>Account | Olag's Book House</title>
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./auth.css">
+</head>
+
+<body>
+    <main class="auth-layout">
+        <section class="auth-story" aria-labelledby="story-heading">
+            <a class="auth-brand" href="../index.html">
+                <span class="auth-brand-mark" aria-hidden="true">O</span>
+                <span>Olag's Book House</span>
+            </a>
+
+            <div class="auth-story-copy">
+                <p class="auth-eyebrow">A better way to share stories</p>
+                <h1 id="story-heading">Your next good book is waiting.</h1>
+                <p>
+                    Join your community book-lending library. Borrow a book,
+                    enjoy it at home, and return it by its due date for another
+                    reader to enjoy.
+                </p>
+            </div>
+
+            <p class="auth-story-footer">Good books travel farther together.</p>
+        </section>
+
+        <section class="auth-side" aria-label="Account access">
+            <div class="auth-card">
+                <p class="auth-eyebrow auth-eyebrow-dark">Welcome to Olag's Book House</p>
+
+                <div class="auth-tabs" aria-label="Choose an account option">
+                    <button class="auth-tab is-active" type="button" data-auth-view="signup"
+                        aria-controls="signup-panel" aria-pressed="true">
+                        Create account
+                    </button>
+
+                    <button class="auth-tab" type="button" data-auth-view="signin" aria-controls="signin-panel"
+                        aria-pressed="false">
+                        Sign in
+                    </button>
+                </div>
+
+                <section id="signup-panel" class="auth-panel">
+                    <h2>Create your reader account</h2>
+                    <p class="auth-subtitle">
+                        New here? Join the community and find your next read.
+                    </p>
+
+                    <form id="signup-form" class="auth-form">
+                        <div class="name-fields">
+                            <div class="form-field">
+                                <label for="first-name">First name</label>
+                                <input id="first-name" name="firstName" type="text" autocomplete="given-name" required>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="last-name">Last name</label>
+                                <input id="last-name" name="lastName" type="text" autocomplete="family-name" required>
+                            </div>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="signup-email">Email address</label>
+                            <input id="signup-email" name="email" type="email" autocomplete="email"
+                                placeholder="you@example.com" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="signup-password">Password</label>
+                            <input id="signup-password" name="password" type="password" autocomplete="new-password"
+                                minlength="8" placeholder="At least 8 characters" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="confirm-password">Confirm password</label>
+                            <input id="confirm-password" name="confirmPassword" type="password"
+                                autocomplete="new-password" minlength="8" required>
+                        </div>
+
+                        <p class="reader-note">
+                            New accounts are reader accounts. Librarian access
+                            is assigned separately by library staff.
+                        </p>
+
+                        <button class="auth-submit" type="submit">
+                            Create account
+                        </button>
+                    </form>
+                    <div class="auth-divider"><span>or continue with</span></div>
+
+                    <button class="google-signin-button" type="button" data-google-signin>
+                        <span class="google-mark" aria-hidden="true">G</span>
+                        Continue with Google
+                    </button>
+                    <p class="auth-switch-copy">
+                        Already a member?
+                        <button type="button" data-auth-view="signin">Sign in</button>
+                    </p>
+                </section>
+
+                <section id="signin-panel" class="auth-panel" hidden>
+                    <h2>Sign in to your account</h2>
+                    <p class="auth-subtitle">
+                        Welcome back. Your next read is waiting.
+                    </p>
+
+                    <form id="signin-form" class="auth-form">
+                        <div class="form-field">
+                            <label for="signin-email">Email address</label>
+                            <input id="signin-email" name="email" type="email" autocomplete="email"
+                                placeholder="you@example.com" required>
+                        </div>
+
+                        <div class="form-field">
+                            <div class="password-label-row">
+                                <label for="signin-password">Password</label>
+                                <button id="forgot-password" type="button">
+                                    Forgot password?
+                                </button>
+                            </div>
+                            <input id="signin-password" name="password" type="password" autocomplete="current-password"
+                                required>
+                        </div>
+
+                        <button class="auth-submit" type="submit">Sign in</button>
+                    </form>
+                    <div class="auth-divider"><span>or continue with</span></div>
+
+                    <button class="google-signin-button" type="button" data-google-signin>
+                        <span class="google-mark" aria-hidden="true">G</span>
+                        Continue with Google
+                    </button>
+                    <p class="auth-switch-copy">
+                        New to the library?
+                        <button type="button" data-auth-view="signup">
+                            Create an account
+                        </button>
+                    </p>
+                </section>
+
+                <p id="auth-message" class="auth-message" role="status" aria-live="polite"></p>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="./auth.js"></script>
+</body>
+
+</html>

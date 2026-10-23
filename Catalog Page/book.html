@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book details from Olag's Book House.">
+    <title>Book Details | Olag's Book House</title>
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./catalog.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Olag's Book House home">
+            <span class="brand-mark" aria-hidden="true">O</span>
+            <span class="brand-copy">
+                <span class="brand-name">Olag's Book House</span>
+                <span class="brand-tagline">Community book lending</span>
+            </span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="../index.html">Home</a>
+            <a href="./catalog.html">Browse books</a>
+            <a href="../Dashboard/dashboard.html">Dashboard</a>
+        </nav>
+
+        <div class="header-auth-controls">
+            <a class="button button-small button-outline" href="../Signup/auth.html" data-signin-link>
+                Sign in
+            </a>
+
+            <button class="button button-small button-outline" type="button" data-logout-button hidden>
+                Log out
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content" class="book-details-main page-width">
+        <p id="reader-welcome" hidden></p>
+
+        <p class="eyebrow">
+            <a href="./catalog.html">Browse books</a> / Book details
+        </p>
+
+        <article class="book-details" id="book-details">
+            <div class="book-details-cover">
+                <img id="book-cover" src="" alt="" hidden>
+            </div>
+
+            <div class="book-details-content">
+                <p class="availability" id="book-availability" hidden>
+                    <span class="availability-dot" aria-hidden="true"></span>
+                    <span id="book-status"></span>
+                </p>
+
+                <h1 id="book-title">Loading book...</h1>
+                <p class="book-author" id="book-author"></p>
+
+                <p class="book-description" id="book-description">
+                    Please wait while the book details load.
+                </p>
+
+                <dl class="book-facts">
+                    <div>
+                        <dt>Category</dt>
+                        <dd id="book-category">Loading...</dd>
+                    </div>
+                    <div>
+                        <dt>Borrowing</dt>
+                        <dd>Take the book home and return it by its due date.</dd>
+                    </div>
+                </dl>
+
+                <p class="book-action-note" id="book-action-note">
+                    Please wait while we check this book.
+                </p>
+
+                <button class="button" id="book-action" type="button" disabled>
+                    Loading...
+                </button>
+
+                <p>
+                    <a href="./catalog.html">Back to the book catalog</a>
+                </p>
+            </div>
+        </article>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="./book.js"></script>
+    <script type="module" src="../site-auth.js"></script>
+</body>
+
+</html>

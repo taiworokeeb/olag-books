@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import Books | Olag's Book House</title>
+</head>
+<body>
+    <main>
+        <h1>Import the starter books</h1>
+        <p id="seed-status" aria-live="polite">
+            Checking your librarian account...
+        </p>
+        <button id="seed-button" type="button" disabled>
+            Import books to Firestore
+        </button>
+    </main>
+
+    <!-- Load the existing array before the import module. -->
+    <script src="./books.js"></script>
+    <script type="module" src="./seed-books.js"></script>
+</body>
+</html>
